@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('newsletter');
+const sorted = posts.sort((a, b) =>
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newsletter – Míškas Čajovna</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: Georgia, 'Times New Roman', serif;
+        background-color: rgb(224, 212, 189);
+        color: rgb(72, 58, 38);
+        min-height: 100vh;
+        padding: 2rem 1rem;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      header a.back {
+        display: inline-block;
+        margin-bottom: 1rem;
+        color: rgb(140, 120, 80);
+        text-decoration: none;
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+      }
+      header a.back:hover { text-decoration: underline; }
+      h1 {
+        font-size: 2rem;
+        font-weight: normal;
+        color: rgb(90, 70, 35);
+        margin-bottom: 0.3rem;
+      }
+      .subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgb(140, 120, 80);
+      }
+      .posts {
+        max-width: 700px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .post-card {
+        background: rgba(224, 212, 189, 0.7);
+        border: 1.5px solid rgb(185, 168, 135);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: box-shadow 0.2s;
+      }
+      .post-card:hover { box-shadow: 0 4px 18px rgba(90, 70, 30, 0.15); }
+      .post-card h2 { font-size: 1.3rem; font-weight: normal; margin-bottom: 0.4rem; }
+      .post-card .meta { font-size: 0.8rem; color: rgb(140, 120, 80); margin-bottom: 0.7rem; }
+      .post-card p { font-size: 0.95rem; line-height: 1.65; margin-bottom: 1rem; }
+      .post-card a.read-more {
+        color: rgb(110, 90, 45);
+        text-decoration: none;
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgb(165, 152, 123);
+      }
+      .post-card a.read-more:hover { color: rgb(80, 60, 20); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="back" href="/">← Zpět na hlavní stránku / Back to home</a>
+      <h1>Newsletter</h1>
+      <p class="subtitle">Novinky z čajovny · Updates from the teahouse</p>
+    </header>
+    <section class="posts">
+      {sorted.map(post => (
+        <article class="post-card">
+          <h2>{post.data.title}</h2>
+          <p class="meta">{new Date(post.data.date).toLocaleDateString('cs-CZ', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          <p>{post.data.description}</p>
+          <a class="read-more" href={`/newsletter/${post.id}`}>Číst více · Read more →</a>
+        </article>
+      ))}
+    </section>
+  </body>
+</html>

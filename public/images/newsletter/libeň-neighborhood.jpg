@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgb(190,205,220)"/>
+      <stop offset="100%" stop-color="rgb(220,215,200)"/>
+    </linearGradient>
+    <linearGradient id="tg" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="rgb(120,105,75)"/>
+      <stop offset="100%" stop-color="rgb(155,140,110)" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+  <!-- Sky / background -->
+  <rect width="800" height="450" fill="url(#sky)"/>
+  <!-- Ground -->
+  <rect x="0" y="340" width="800" height="110" fill="rgb(175,160,125)"/>
+  <!-- Street cobblestones suggestion -->
+  <rect x="0" y="360" width="800" height="5" fill="rgb(155,140,108)" opacity="0.4"/>
+  <rect x="0" y="380" width="800" height="5" fill="rgb(155,140,108)" opacity="0.3"/>
+  <!-- Buildings in background (Libeň style) -->
+  <!-- Left building -->
+  <rect x="20" y="160" width="180" height="200" fill="rgb(210,200,180)" stroke="rgb(170,155,125)" stroke-width="1.5"/>
+  <rect x="20" y="140" width="180" height="28" fill="rgb(195,182,158)" stroke="rgb(170,155,125)" stroke-width="1.5"/>
+  <!-- Windows left building -->
+  <rect x="40" y="180" width="28" height="36" rx="2" fill="rgb(175,195,210)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <rect x="85" y="180" width="28" height="36" rx="2" fill="rgb(175,195,210)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <rect x="130" y="180" width="28" height="36" rx="2" fill="rgb(175,195,210)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <rect x="40" y="235" width="28" height="36" rx="2" fill="rgb(165,185,200)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <rect x="85" y="235" width="28" height="36" rx="2" fill="rgb(165,185,200)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <rect x="130" y="235" width="28" height="36" rx="2" fill="rgb(165,185,200)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <!-- Right building -->
+  <rect x="600" y="140" width="200" height="220" fill="rgb(215,202,178)" stroke="rgb(170,155,125)" stroke-width="1.5"/>
+  <rect x="600" y="120" width="200" height="28" fill="rgb(200,185,160)" stroke="rgb(170,155,125)" stroke-width="1.5"/>
+  <rect x="620" y="160" width="28" height="36" rx="2" fill="rgb(175,195,210)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <rect x="668" y="160" width="28" height="36" rx="2" fill="rgb(175,195,210)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <rect x="716" y="160" width="28" height="36" rx="2" fill="rgb(175,195,210)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <rect x="620" y="215" width="28" height="36" rx="2" fill="rgb(165,185,200)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <rect x="668" y="215" width="28" height="36" rx="2" fill="rgb(165,185,200)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <rect x="716" y="215" width="28" height="36" rx="2" fill="rgb(165,185,200)" stroke="rgb(140,120,85)" stroke-width="1.5"/>
+  <!-- Main teahouse building (center) -->
+  <rect x="270" y="190" width="260" height="170" fill="rgb(205,192,165)" stroke="rgb(155,135,100)" stroke-width="2"/>
+  <rect x="265" y="168" width="270" height="30" fill="rgb(190,175,145)" stroke="rgb(155,135,100)" stroke-width="2"/>
+  <!-- Arched entrance -->
+  <rect x="365" y="280" width="70" height="80" rx="35" fill="rgb(165,152,123)" stroke="rgb(130,110,75)" stroke-width="2"/>
+  <!-- Teahouse windows -->
+  <rect x="285" y="210" width="50" height="60" rx="3" fill="rgb(175,195,210)" stroke="rgb(130,110,75)" stroke-width="2"/>
+  <rect x="465" y="210" width="50" height="60" rx="3" fill="rgb(175,195,210)" stroke="rgb(130,110,75)" stroke-width="2"/>
+  <!-- Sign above entrance -->
+  <rect x="345" y="185" width="110" height="24" rx="4" fill="rgb(165,152,123)" stroke="rgb(110,90,55)" stroke-width="1.5"/>
+  <text x="400" y="201" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="rgb(240,230,210)">Čajovna</text>
+  <!-- Trees flanking -->
+  <g fill="url(#tg)">
+    <rect x="224" y="270" width="14" height="95" rx="4"/>
+    <rect x="228" y="210" width="10" height="90" rx="3" transform="rotate(-16 228 210)"/>
+    <rect x="237" y="195" width="8" height="70" rx="3" transform="rotate(14 237 195)"/>
+    <rect x="216" y="208" width="8" height="68" rx="3" transform="rotate(-12 216 208)"/>
+  </g>
+  <g fill="url(#tg)">
+    <rect x="562" y="270" width="14" height="95" rx="4"/>
+    <rect x="560" y="210" width="10" height="90" rx="3" transform="rotate(16 560 210)"/>
+    <rect x="551" y="195" width="8" height="70" rx="3" transform="rotate(-14 551 195)"/>
+    <rect x="572" y="208" width="8" height="68" rx="3" transform="rotate(12 572 208)"/>
+  </g>
+  <!-- Train station sign hint -->
+  <rect x="85" y="298" width="4" height="65" fill="rgb(120,100,65)"/>
+  <rect x="68" y="290" width="40" height="22" rx="3" fill="rgb(50,80,130)" stroke="rgb(35,60,110)" stroke-width="1.5"/>
+  <text x="88" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Libeň</text>
+  <!-- Caption -->
+  <text x="400" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="rgb(100,80,45)" opacity="0.7">
+    Okolí Nádraží Libeň · Nádraží Libeň neighborhood
+  </text>
+</svg>

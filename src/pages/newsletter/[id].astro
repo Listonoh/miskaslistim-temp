@@ -1,0 +1,135 @@
+---
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('newsletter');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{post.data.title} – Míškas Čajovna Newsletter</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: Georgia, 'Times New Roman', serif;
+        background-color: rgb(224, 212, 189);
+        color: rgb(72, 58, 38);
+        min-height: 100vh;
+        padding: 2rem 1rem;
+      }
+      header {
+        max-width: 720px;
+        margin: 0 auto 2rem;
+      }
+      header a.back {
+        display: inline-block;
+        margin-bottom: 1rem;
+        color: rgb(140, 120, 80);
+        text-decoration: none;
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+      }
+      header a.back:hover { text-decoration: underline; }
+      h1 {
+        font-size: 1.9rem;
+        font-weight: normal;
+        color: rgb(90, 70, 35);
+        margin-bottom: 0.4rem;
+      }
+      .meta {
+        font-size: 0.8rem;
+        color: rgb(140, 120, 80);
+        letter-spacing: 0.06em;
+        margin-bottom: 1rem;
+      }
+      .hero-img {
+        max-width: 720px;
+        margin: 0 auto 2rem;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+      .hero-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 0.75rem;
+      }
+      article {
+        max-width: 720px;
+        margin: 0 auto;
+        line-height: 1.75;
+        font-size: 1.05rem;
+      }
+      article h2 {
+        font-size: 1.4rem;
+        font-weight: normal;
+        color: rgb(90, 70, 35);
+        margin: 1.8rem 0 0.6rem;
+      }
+      article p { margin-bottom: 1rem; }
+      article em { color: rgb(110, 90, 55); }
+      article ul {
+        padding-left: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      article li { margin-bottom: 0.3rem; }
+      article hr {
+        border: none;
+        border-top: 1.5px solid rgb(185, 168, 135);
+        margin: 1.5rem 0;
+      }
+      article img {
+        max-width: 100%;
+        border-radius: 0.75rem;
+        margin: 1rem 0;
+      }
+      article strong { color: rgb(80, 60, 30); }
+      footer {
+        max-width: 720px;
+        margin: 2.5rem auto 0;
+        text-align: center;
+      }
+      footer a {
+        color: rgb(110, 90, 45);
+        text-decoration: none;
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgb(165, 152, 123);
+      }
+      footer a:hover { color: rgb(80, 60, 20); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="back" href="/newsletter">← Všechny newslettery / All newsletters</a>
+      <h1>{post.data.title}</h1>
+      <p class="meta">
+        {new Date(post.data.date).toLocaleDateString('cs-CZ', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </p>
+    </header>
+
+    {post.data.image && (
+      <div class="hero-img">
+        <img src={post.data.image} alt={post.data.imageAlt ?? ''} />
+      </div>
+    )}
+
+    <article>
+      <Content />
+    </article>
+
+    <footer>
+      <a href="/newsletter">← Zpět na newslettery / Back to newsletters</a>
+    </footer>
+  </body>
+</html>
