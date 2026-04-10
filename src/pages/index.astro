@@ -1,0 +1,167 @@
+---
+---
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Čajovna miska s listím — brzy otevíráme v Praze" />
+    <title>Čajovna miska s listím | Coming Soon</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        font-family: Georgia, 'Times New Roman', serif;
+        background-color: rgb(224, 212, 189);
+        color: rgb(72, 58, 38);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        background:
+          linear-gradient(rgba(224, 212, 189, 0.3), rgba(224, 212, 189, 0.3)),
+          url('/background.png') center / cover no-repeat;
+        opacity: 0.85;
+      }
+
+      .desktop-panels {
+        display: none;
+      }
+
+      .panel {
+        display: none;
+      }
+
+      
+
+      /* ── Content card ── */
+      .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2.5rem 2rem;
+        max-width: 560px;
+        width: 90%;
+        background: rgba(224, 212, 189, 0.62);
+        backdrop-filter: blur(6px);
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 32px rgba(90, 70, 30, 0.15);
+      }
+
+      /* ── Logo ── */
+      .logo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1.5rem;
+      }
+
+      /* ── Teahouse name ── */
+      .site-name {
+        font-size: 2rem;
+        font-weight: normal;
+        letter-spacing: 0.08em;
+        color: rgb(90, 70, 35);
+        margin-bottom: 0.35rem;
+      }
+
+      .site-subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgb(140, 120, 80);
+        margin-bottom: 2rem;
+      }
+
+      /* ── Main message ── */
+      .message {
+        margin-bottom: 0.75rem;
+      }
+
+      .message-cz {
+        font-size: 1.2rem;
+        font-style: italic;
+        color: rgb(80, 64, 38);
+        margin-bottom: 0.4rem;
+      }
+
+      .message-en {
+        font-size: 0.95rem;
+        color: rgb(120, 100, 65);
+        letter-spacing: 0.04em;
+      }
+
+      .location {
+        font-size: 0.85rem;
+        color: rgb(140, 120, 80);
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+      }
+
+      /* ── Newsletter button ── */
+      .btn-newsletter {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background: rgb(165, 152, 123);
+        color: rgb(248, 242, 228);
+        text-decoration: none;
+        border-radius: 3rem;
+        font-family: Georgia, serif;
+        font-size: 0.95rem;
+        letter-spacing: 0.06em;
+        border: 2px solid rgb(140, 128, 100);
+        transition: background 0.25s, color 0.25s, transform 0.15s;
+        cursor: pointer;
+      }
+
+      .btn-newsletter:hover {
+        background: rgb(140, 128, 100);
+        color: rgb(255, 250, 240);
+        transform: translateY(-2px);
+      }
+
+      .btn-newsletter:active {
+        transform: translateY(0);
+      }    </style>
+  </head>
+  <body>    <!-- Main content -->
+    <main class="content">
+
+      <h1 class="site-name">Čajovna miska s listím</h1>
+      <p class="site-subtitle">Praha · Nádraží Libeň</p>
+
+      <div class="message">
+        <p class="message-cz">Připravujeme pro vás čajovnu.</p>
+        <p class="message-en">We are in the process of preparing the teahouse.</p>
+      </div>
+      <p class="location">📍 Praha, kousek of Nádraží Libeň</p>
+
+      <a class="btn-newsletter" href="https://docs.google.com/forms/d/e/1FAIpQLSd7OBMQZSMyFpnNG_jREBpRUVD0CMK6IlEwPoAL4apDEVnalQ/viewform">
+        Přihlaste se k odběru novinek &nbsp;/&nbsp; Subscribe to Newsletter
+      </a>
+    </main>
+
+  </body>
+</html>
